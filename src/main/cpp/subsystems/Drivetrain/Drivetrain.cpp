@@ -14,7 +14,6 @@ void Drivetrain::Drive(double drive, double steer) {
     frDrive.Set(speeds.right);
     blDrive.Set(speeds.left);
     brDrive.Set(speeds.left);
-    
 };
 
 // This method will be called once per scheduler run
