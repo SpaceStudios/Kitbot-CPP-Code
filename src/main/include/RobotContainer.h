@@ -6,6 +6,9 @@
 
 #include <frc2/command/CommandPtr.h>
 
+#include "subsystems/drivetrain/Drivetrain.h"
+#include "subsystems/drivetrain/commands/Drive.h"
+
 class RobotContainer {
  public:
   RobotContainer();
@@ -14,4 +17,7 @@ class RobotContainer {
 
  private:
   void ConfigureBindings();
+  
+  Drivetrain drivetrain();
+  Drive driveCommand();
 };
