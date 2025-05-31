@@ -8,8 +8,14 @@
 
 #include <frc/TimedRobot.h>
 #include <frc2/command/CommandPtr.h>
+#include <frc/MathUtil.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 #include "RobotContainer.h"
+
+#include "subsystems/drivetrain/Drivetrain.h"
+#include "subsystems/dispenser/Dispenser.h"
+#include "subsystems/dispenser/commands/setOutputDispenser.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -30,6 +36,9 @@ class Robot : public frc::TimedRobot {
 
  private:
   std::optional<frc2::CommandPtr> m_autonomousCommand;
-
   RobotContainer m_container;
+  Drivetrain drivetrain;
+  frc2::CommandXboxController driveController{0};
+  Dispenser dispenser;
+  setOutputDispenser dispenserCommand{&dispenser, 0.5};
 };

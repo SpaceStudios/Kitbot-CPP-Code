@@ -6,13 +6,17 @@
 
 #include <frc2/command/CommandScheduler.h>
 
-Robot::Robot() {}
+Robot::Robot() {
+  driveController.RightTrigger().WhileTrue(&dispenserCommand);
+}
 
 void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();
 }
 
-void Robot::DisabledInit() {}
+void Robot::DisabledInit() {
+  drivetrain.Drive(0.0,0.0);
+}
 
 void Robot::DisabledPeriodic() {}
 
@@ -36,9 +40,13 @@ void Robot::TeleopInit() {
   }
 }
 
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic() {
+  drivetrain.Drive(frc::ApplyDeadband(driveController.GetLeftY(), 0.1),frc::ApplyDeadband(driveController.GetRightX(), 0.1));
+}
 
-void Robot::TeleopExit() {}
+void Robot::TeleopExit() {
+  drivetrain.Drive(0,0);
+}
 
 void Robot::TestInit() {
   frc2::CommandScheduler::GetInstance().CancelAll();

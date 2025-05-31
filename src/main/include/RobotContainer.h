@@ -6,18 +6,13 @@
 
 #include <frc2/command/CommandPtr.h>
 
-#include "subsystems/drivetrain/Drivetrain.h"
-#include "subsystems/drivetrain/commands/Drive.h"
+#include <frc2/command/button/CommandXboxController.h>
 
 class RobotContainer {
  public:
   RobotContainer();
-
   frc2::CommandPtr GetAutonomousCommand();
 
  private:
   void ConfigureBindings();
-  
-  Drivetrain drivetrain();
-  Drive driveCommand();
 };
