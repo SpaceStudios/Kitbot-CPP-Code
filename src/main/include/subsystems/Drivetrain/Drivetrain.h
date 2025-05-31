@@ -22,7 +22,7 @@ class Drivetrain : public frc2::SubsystemBase {
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonSRX flDrive{1};
-  WPI_TalonSRX frDrive{1};
-  WPI_TalonSRX blDrive{1};
-  WPI_TalonSRX brDrive{1};
+  WPI_TalonSRX frDrive{2};
+  WPI_TalonSRX blDrive{3};
+  WPI_TalonSRX brDrive{4};
 };
